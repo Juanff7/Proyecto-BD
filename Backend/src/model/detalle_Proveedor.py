@@ -7,14 +7,14 @@ from datetime import datetime
 class Detalle_proveedor(Base):
     __tablename__ = "detalles_proveedor"
 
-    id = Column(BigInteger, primary_key=True, index=True)
-    producto_id = Column(BigInteger, ForeignKey("productos.id"))
-    proveedor_id = Column(BigInteger, ForeignKey("proveedores.id"))  # ✅ corregido
+    id_dp = Column(BigInteger, primary_key=True, index=True)
+    id_producto = Column(BigInteger, ForeignKey("productos.id_producto"))
+    id_proveedor = Column(BigInteger, ForeignKey("proveedores.id_proveedor"))  # ✅ corregido
     precio_unit = Column(Float, index=True)
     cantidad = Column(INTEGER, index=True)
     fecha_ingreso = Column(DateTime, default=datetime.now)
     detalle = Column(String, index=True)
-    empleado_id = Column(BigInteger, ForeignKey("empleados.id_empleado"))
+    id_empleado = Column(BigInteger, ForeignKey("empleados.id_empleado"))
 
     # Relaciones
     producto = relationship("Producto", back_populates="detallesProveedores")

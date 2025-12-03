@@ -1,0 +1,97 @@
+.rp-container {
+  padding: 40px 50px;
+  color: #e5e7eb;
+}
+
+.rp-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 25px;
+}
+
+.rp-card {
+  width: 420px;
+  margin: auto;
+  padding: 25px;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+.rp-card label {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  display: block;
+  margin-bottom: 4px;
+  color: #9ca3af;
+}
+
+.rp-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #111827;
+  color: white;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.rp-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* SUGERENCIAS */
+.rp-suggest-box {
+  margin-top: 5px;
+  background: #111827;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.rp-suggest-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.rp-suggest-item:hover {
+  background: #1e293b;
+}
+
+/* INFO DE PRODUCTO */
+.rp-product-info {
+  margin-top: 15px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.rp-product-info h3 {
+  margin-bottom: 8px;
+  color: #3b82f6;
+}
+
+.rp-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.rp-btn:hover {
+  background: #1d4ed8;
+}
+
+.rp-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

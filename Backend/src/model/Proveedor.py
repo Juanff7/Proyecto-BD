@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 
 class Proveedor(Base):
     __tablename__ = "proveedores"
-    id = Column(BigInteger, primary_key=True, index=True)
+    id_proveedor = Column(BigInteger, primary_key=True, index=True)
     nombre = Column(String, index=True)
     apellido = Column(String, index=True)
     usuario_ebay = Column(String, index= True)

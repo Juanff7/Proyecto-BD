@@ -22,6 +22,8 @@ from src.api.router import detalle_venta
 
 from fastapi.security import OAuth2PasswordBearer
 
+
+
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/Empleado/token")
 
 
@@ -41,6 +43,10 @@ app.add_middleware(
 
 
 )
+
+#agregar imagen
+from fastapi.staticfiles import StaticFiles
+app.mount("/uploads", StaticFiles(directory="src/uploads"), name="uploads")
 
 
 app.openapi_schema = None  # Forzar regeneración de esquema con auth
@@ -78,7 +84,7 @@ app.include_router(Cargo.router, prefix="/Cargo", tags=['etiqueta cargos'])
 #-------------Ruta Empleado----------------
 app.include_router(Empleado.router,prefix="/Empleado", tags=['etiqueta empleado'])
 #-------------ruta Producto----------------
-app.include_router(Producto.router, prefix="/Producto", tags=['etiqueta producto'])
+app.include_router(Producto.router, prefix="/Producto", tags=['Productos'])
 #------------Ruta Categoria---------------
 app.include_router(categoria.router, prefix="/categoria", tags=['etiqueta categoria'])
 #-----------Ruta Proveedor--------------------

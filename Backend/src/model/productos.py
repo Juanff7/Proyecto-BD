@@ -5,10 +5,10 @@ from src.db.base_class import Base
 
 class Producto(Base):
     __tablename__ = "productos"
-    id = Column(BigInteger, primary_key=True, index=True)
+    id_producto = Column(BigInteger, primary_key=True, index=True)
     nombre = Column(String, index=True)
     descripcion = Column(Text, index=True)
-    categoria_id = Column(BigInteger, ForeignKey("categorias.id"))
+    id_categoria = Column(BigInteger, ForeignKey("categorias.id_categoria"))
     costo_venta = Column(INTEGER, index=True)
     cantidad = Column(INTEGER, index=True)
     imagen_url = Column(String, nullable=True)

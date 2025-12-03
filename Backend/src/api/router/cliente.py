@@ -8,37 +8,48 @@ from src.schemas import Cliente as Cliente_schema
 
 router = APIRouter()
 
-#Crear un cliente 
-@router.post("/Create", response_model= Cliente_schema.ClienteBase)
+# Crear cliente
+@router.post("/Create", response_model=Cliente_schema.ClienteOut)
 def Create_Cliente(Cliente: Cliente_schema.ClienteBase, db: Session = Depends(get_db)):
-    return Cliente_crud.Created_Cliente(db = db, data=Cliente)
+    return Cliente_crud.Created_Cliente(db=db, data=Cliente)
 
-#Actualizar un cliente
-@router.put("/update", response_model=Cliente_schema.ClienteBase)
-def Update_cliente(id : int, data: Cliente_schema.ClienteBase, db: Session = Depends(get_db)):
-      cliente = Cliente_crud.get_id(db, id = id)
-      if cliente is None: 
+# Actualizar cliente
+@router.put("/update/{id_cliente}", response_model=Cliente_schema.ClienteOut)
+def Update_cliente(id_cliente: int, data: Cliente_schema.ClienteUpdate, db: Session = Depends(get_db)):
+    cliente = Cliente_crud.get_id(db, id=id_cliente)
+    if cliente is None:
         raise HTTPException(status_code=404, detail="cliente no encontrado")
-      return Cliente_crud.Update_Cliente(db = db, id= id, data = data)
+    return Cliente_crud.Update_Cliente(db=db, id=id_cliente, data=data)
 
-    
+# Eliminar cliente
+@router.delete("/delete/{id_cliente}")
+def delete_cliente(id_cliente: int, db: Session = Depends(get_db)):
+    return Cliente_crud.delete_cliente(db=db, id=id_cliente)
 
-#Obtener clientes
+# Obtener todos
 @router.get("/Obtener", response_model=List[Cliente_schema.ClienteOut])
 def get_clientes(db: Session = Depends(get_db)):
     return Cliente_crud.get_allCLiente(db)
 
+# Obtener por nombre
 @router.get("/Obtener/name", response_model=Cliente_schema.ClienteOut)
-def get_name(name: str, db : Session = Depends(get_db)):
-   cliente = Cliente_crud.get_name(db, name = name)
-   if cliente is None: 
-       raise HTTPException(status_code=404, detail="cliente no encontrado")
-   return cliente
+def get_name(name: str, db: Session = Depends(get_db)):
+    cliente = Cliente_crud.get_name(db, name=name)
+    if cliente is None:
+        raise HTTPException(status_code=404, detail="cliente no encontrado")
+    return cliente
 
+# Obtener por ID
+@router.get("/Obtener/{id_cliente}", response_model=Cliente_schema.ClienteOut)
+def get_cliente_id(id_cliente: int, db: Session = Depends(get_db)):
+    cliente = Cliente_crud.get_id(db, id=id_cliente)
+    if cliente is None:
+        raise HTTPException(status_code=404, detail="cliente no encontrado")
+    return cliente
 
-@router.get("/Obtener/id", response_model=Cliente_schema.ClienteOut)
-def get_name(id: int, db : Session = Depends(get_db)):
-   cliente = Cliente_crud.get_id(db, id = id)
-   if cliente is None: 
-       raise HTTPException(status_code=404, detail="cliente no encontrado")
-   return cliente
+from src.utils.search import buscar_por_nombre_lista
+from src.model.cliente import Cliente
+@router.get("/autocompletado")
+def autocomplete_Cliente(query: str, db: Session = Depends(get_db)):
+    cliente = buscar_por_nombre_lista(db, Cliente, Cliente.nombre, query, limite=5)
+    return [{"nombre": p.nombre} for p in cliente]

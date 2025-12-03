@@ -1,0 +1,358 @@
+/* ============================
+   CONTENEDOR GENERAL
+============================ */
+.hist-container {
+  padding: 35px 50px;
+  color: #e5e7eb;
+}
+
+.hist-title {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 24px;
+}
+
+/* ============================
+   TOP: FILTROS + RESUMEN
+============================ */
+.hist-top {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* Filtros */
+.hist-filters {
+  flex: 1.4;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #020617;
+  border: 1px solid #111827;
+}
+
+.hist-filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.hist-filter-group label {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 3px;
+}
+
+.hist-input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+}
+
+.hist-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.hist-filter-buttons {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Botones filtros */
+.hist-btn-secondary,
+.hist-btn-refresh {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hist-btn-secondary {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #1f2937;
+}
+
+.hist-btn-secondary:hover {
+  background: #1f2937;
+}
+
+.hist-btn-refresh {
+  background: #2563eb;
+  color: white;
+}
+
+.hist-btn-refresh:hover {
+  background: #1d4ed8;
+}
+
+/* Resumen */
+.hist-summary {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hist-summary-card {
+  background: #020617;
+  border-radius: 12px;
+  border: 1px solid #0f172a;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hist-summary-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.hist-summary-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.hist-summary-up {
+  border-color: #166534;
+}
+
+.hist-summary-up .hist-summary-value {
+  color: #22c55e;
+}
+
+.hist-summary-down {
+  border-color: #7f1d1d;
+}
+
+.hist-summary-down .hist-summary-value {
+  color: #f97373;
+}
+
+/* ============================
+   TABLA
+============================ */
+.hist-table-wrapper {
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #0f172a;
+  background: #020617;
+}
+
+.hist-row {
+  display: grid;
+  grid-template-columns: 10% 25% 15% 15% 15% 20%;
+  padding: 9px 16px;
+  border-bottom: 1px solid #0f172a;
+  align-items: center;
+  font-size: 0.86rem;
+}
+
+.hist-header-row {
+  background: #020617;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hist-row:not(.hist-header-row):hover {
+  background: #02081a;
+}
+
+/* Columnas específicas */
+.hist-col-id {
+  display: flex;
+  align-items: center;
+}
+
+.hist-col-product {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hist-product-id {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.hist-product-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.hist-col-price {
+  font-variant-numeric: tabular-nums;
+}
+
+.hist-col-change {
+  font-variant-numeric: tabular-nums;
+}
+
+.hist-col-date {
+  font-size: 0.8rem;
+  color: #cbd5f5;
+}
+
+/* ID pill */
+.hist-id-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid #1f2937;
+  font-size: 0.75rem;
+}
+
+/* Chips de variación */
+.hist-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hist-chip.up {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.hist-chip.down {
+  background: rgba(248, 113, 113, 0.1);
+  color: #f97373;
+}
+
+.hist-chip.neutral {
+  background: #111827;
+  color: #9ca3af;
+}
+
+.hist-chip-pct {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+/* Header clickeable para ordenar */
+.hist-header-click {
+  cursor: pointer;
+  user-select: none;
+}
+
+.hist-sort-indicator {
+  margin-left: 4px;
+  font-size: 0.7rem;
+}
+
+/* Fila vacía / loading */
+.hist-row-empty {
+  text-align: center;
+  justify-content: center;
+  color: #9ca3af;
+}
+
+/* ============================
+   FOOTER + PAGINACIÓN
+============================ */
+.hist-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.hist-footer-count {
+  color: #9ca3af;
+}
+
+.hist-pagination {
+  display: flex;
+  gap: 4px;
+}
+
+.hist-page-btn {
+  min-width: 32px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.hist-page-btn:hover:not(:disabled) {
+  background: #111827;
+}
+
+.hist-page-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.hist-page-btn-active {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 1024px) {
+  .hist-top {
+    flex-direction: column;
+  }
+
+  .hist-summary {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .hist-row {
+    grid-template-columns: 12% 27% 16% 16% 17% 22%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hist-container {
+    padding: 20px 16px;
+  }
+
+  .hist-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hist-row {
+    grid-template-columns: 14% 30% 18% 18% 20% 0%;
+  }
+
+  .hist-col-date {
+    display: none;
+  }
+
+  .hist-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .hist-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

@@ -1,47 +1,61 @@
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
+
 from src.model.empleado import Empleado
-from src.schemas.empleados import EmpleadoCreated
+from src.schemas.empleados import EmpleadoCreate, EmpleadoUpdate
 
 
-#Seguridad de token para el login
-from src.core.security import create_access_token
-from fastapi import HTTPException, status
-
-#Contraseña encriptada 
-import bcrypt
-
-from src.model.cargo import Cargo
-
-
-#Crear un empleado 
-def create_empleado(db: Session, data:EmpleadoCreated) -> Empleado:
-    
-    #Encriptamos la contraseña para que nadie la vea
-    hashed = bcrypt.hashpw(data.contraseña.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
-
-    obj= Empleado (
-        nombre = data.nombre,
-        apellido = data.apellido,
-        email = data.email,
-        password_hash = hashed,
-        id_cargo = data.id_cargo,
-        activo = data.activo
+# Crear empleado
+def create_empleado(db: Session, data: EmpleadoCreate):
+    empleado = Empleado(
+        nombre=data.nombre,
+        apellido=data.apellido,
+        email=data.email,
+        id_cargo=data.id_cargo,
+        activo=data.activo
     )
-    db.add(obj)
+    db.add(empleado)
     db.commit()
-    db.refresh(obj)
-    return obj
+    db.refresh(empleado)
+    return empleado
 
 
+# Obtener todos
+def get_all_empleados(db: Session):
+    return db.query(Empleado).all()
 
-#---------------login---------------
-def login_empleado(db: Session, email: str, password: str):
-    empleado = db.query(Empleado).filter(Empleado.email == email).first()
+
+# Obtener uno por ID
+def get_empleado(db: Session, id_empleado: int):
+    empleado = db.query(Empleado).filter(Empleado.id_empleado == id_empleado).first()
     if not empleado:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Empleado no encontrado")
-    if not bcrypt.checkpw(password.encode("utf-8"),empleado.password_hash.encode("utf-8")):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Contraseña incorrecta")
-    
-    token = create_access_token({"sub": str(empleado.id_empleado)})
-    return {"access_token" : token, "token_type": "bearer"}
+        raise HTTPException(status_code=404, detail="Empleado no encontrado")
+    return empleado
 
+
+# Actualizar empleado
+def update_empleado(db: Session, id_empleado: int, data: EmpleadoUpdate):
+    empleado = db.query(Empleado).filter(Empleado.id_empleado == id_empleado).first()
+    if not empleado:
+        raise HTTPException(status_code=404, detail="Empleado no encontrado")
+    
+    empleado.nombre = data.nombre
+    empleado.apellido = data.apellido
+    empleado.email = data.email
+    empleado.id_cargo = data.id_cargo
+    empleado.activo = data.activo
+
+    db.commit()
+    db.refresh(empleado)
+    return empleado
+
+
+# Eliminar empleado
+def delete_empleado(db: Session, id_empleado: int):
+    empleado = db.query(Empleado).filter(Empleado.id_empleado == id_empleado).first()
+    if not empleado:
+        raise HTTPException(status_code=404, detail="Empleado no encontrado")
+
+    db.delete(empleado)
+    db.commit()
+    return {"detail": "Empleado eliminado correctamente"}

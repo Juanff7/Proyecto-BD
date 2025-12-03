@@ -13,5 +13,5 @@ class ProveedorCreate(ProveedorBase):
     model_config = ConfigDict(from_attributes=True)
 
 class proveedorOut(ProveedorBase):
-    id: int
+    id_proveedor: int
     model_config = ConfigDict(from_attributes=True)

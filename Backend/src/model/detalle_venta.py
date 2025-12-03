@@ -6,9 +6,9 @@ from src.db.base_class import Base
 
 class Detalle_venta(Base):
     __tablename__ = "detalles_venta"
-    id = Column(BigInteger, primary_key=True, index=True )
-    id_venta = Column(BigInteger, ForeignKey("ventas.id"))
-    id_producto = Column(BigInteger, ForeignKey("productos.id"))
+    id_dv = Column(BigInteger, primary_key=True, index=True )
+    id_venta = Column(BigInteger, ForeignKey("ventas.id_venta"))
+    id_producto = Column(BigInteger, ForeignKey("productos.id_producto"))
     cantidad = Column(INTEGER, index=True)
     precio_unit = Column(Float, index=True )
     sub_total = Column(Float, index  = True)

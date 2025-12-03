@@ -5,9 +5,9 @@ from sqlalchemy.orm import relationship
 
 class Telefono(Base):
     __tablename__ = "telefonos"
-    id = Column(BigInteger, primary_key=True, index=True)
+    id_telefono = Column(BigInteger, primary_key=True, index=True)
     num = Column(Integer, index=True)
-    id_proveedor = Column(BigInteger, ForeignKey("proveedores.id"))
+    id_proveedor = Column(BigInteger, ForeignKey("proveedores.id_proveedor"))
 
 
     #relaciones

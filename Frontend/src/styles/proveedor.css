@@ -1,0 +1,150 @@
+/* Contenedor general */
+.prov-container {
+  padding: 35px 50px;
+  color: #e5e7eb;
+}
+
+.prov-title {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 30px;
+}
+
+/* Layout principal */
+.prov-layout {
+  display: grid;
+  grid-template-columns: 28% 72%;
+  gap: 30px;
+}
+
+/* FORMULARIO */
+.prov-form {
+  padding-right: 10px;
+}
+
+.prov-form-title {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.prov-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prov-form input {
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #111827;
+  color: #fff;
+}
+
+.prov-form input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.prov-btn-primary {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.prov-btn-primary:hover {
+  background: #1e40af;
+}
+
+/* TABLA */
+.prov-table {
+  padding-left: 10px;
+}
+
+.prov-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.prov-search {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #30363d;
+  background: #0f172a;
+  color: white;
+}
+
+.prov-search:focus {
+  border-color: #3b82f6;
+}
+
+.prov-table-count {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* GRID TABLA */
+.prov-table-grid {
+  display: grid;
+  grid-template-columns: 25% 15% 15% 15% 30%;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.prov-header {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.prov-row:hover {
+  background: #0f172a;
+}
+
+/* Acciones */
+.prov-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.prov-btn-edit,
+.prov-btn-delete,
+.prov-btn-save,
+.prov-btn-cancel {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: none;
+}
+
+.prov-btn-edit {
+  background: #1e3a8a;
+  color: white;
+}
+
+.prov-btn-delete {
+  background: #991b1b;
+  color: white;
+}
+
+.prov-btn-save {
+  background: #065f46;
+  color: white;
+}
+
+.prov-btn-cancel {
+  background: #374151;
+  color: white;
+}

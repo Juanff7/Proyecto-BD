@@ -1,0 +1,332 @@
+/* CONTENEDOR PRINCIPAL */
+.hv-container {
+  padding: 35px 50px;
+  color: #e5e7eb;
+}
+
+.hv-title {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #10b981; /* VERDE para diferenciar ventas */
+  margin-bottom: 25px;
+}
+
+/* =========================
+   FILTROS
+========================= */
+.hv-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 12px;
+  align-items: flex-end;
+}
+
+.hv-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hv-filter-row {
+  display: flex;
+  gap: 6px;
+}
+
+.hv-input {
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #0f172a;
+  color: #e5e7eb;
+  min-width: 150px;
+  font-size: 0.85rem;
+}
+
+.hv-input-wide {
+  min-width: 260px;
+}
+
+.hv-input:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+.hv-btn,
+.hv-btn-secondary,
+.hv-btn-excel,
+.hv-btn-pdf {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.hv-btn {
+  background: #059669;
+  color: #fff;
+}
+
+.hv-btn:hover {
+  background: #047857;
+}
+
+.hv-btn-secondary {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+.hv-btn-secondary:hover {
+  background: #4b5563;
+}
+
+.hv-btn-excel {
+  background: #059669;
+  color: white;
+}
+
+.hv-btn-excel:hover {
+  background: #047857;
+}
+
+.hv-btn-pdf {
+  background: #dc2626;
+  color: white;
+}
+
+.hv-btn-pdf:hover {
+  background: #b91c1c;
+}
+
+.hv-filtros label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* =========================
+   RESUMEN
+========================= */
+.hv-summary {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.hv-card {
+  background: #020617;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  padding: 10px 14px;
+  min-width: 170px;
+}
+
+.hv-card-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.hv-card-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* =========================
+   HISTOGRAMA - TOP CLIENTES
+========================= */
+.hv-stats {
+  margin-bottom: 20px;
+}
+
+.hv-subtitle {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #e5e7eb;
+}
+
+.hv-chart {
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  padding: 12px 14px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.hv-bar {
+  margin-bottom: 8px;
+}
+
+.hv-bar-label {
+  display: block;
+  font-size: 0.78rem;
+  margin-bottom: 3px;
+}
+
+.hv-bar-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #0b1120;
+  overflow: hidden;
+}
+
+.hv-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10b981, #2563eb);
+}
+
+/* =========================
+   TABLA
+========================= */
+.hv-table {
+  margin-top: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+}
+
+.hv-row {
+  display: grid;
+  grid-template-columns: 6% 24% 20% 20% 15% 15%;
+  padding: 9px 10px;
+  border-bottom: 1px solid #111827;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.hv-header {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  background: #020617;
+  color: #9ca3af;
+}
+
+.hv-row:nth-child(even):not(.hv-header) {
+  background: #020617;
+}
+
+.hv-row:hover:not(.hv-header) {
+  background: #0b1120;
+}
+
+.hv-empty-row span {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* ACCIONES */
+.hv-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.hv-btn-detalle {
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  background: #1e40af;
+  color: white;
+}
+
+.hv-btn-detalle:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   PAGINACIÓN
+========================= */
+.hv-pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.hv-pagination button {
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+  border-radius: 6px;
+  padding: 4px 9px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.hv-pagination button:hover {
+  background: #111827;
+}
+
+.hv-pagination button.active {
+  background: #059669;
+  border-color: #059669;
+}
+
+/* =========================
+   MODAL
+========================= */
+.hv-modal-back {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.hv-modal {
+  width: 380px;
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  padding: 20px 22px;
+}
+
+.hv-modal h2 {
+  margin-bottom: 10px;
+  color: #10b981;
+}
+
+.hv-modal p {
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+}
+
+.hv-detalle-row {
+  margin-top: 6px;
+  padding: 8px;
+  background: #0f172a;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+}
+
+.hv-total-final {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.hv-btn-close {
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 0;
+  background: #374151;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+.hv-btn-close:hover {
+  background: #4b5563;
+}

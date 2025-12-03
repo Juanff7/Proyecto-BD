@@ -17,7 +17,7 @@ class ProductoCreate(ProductoBase):
 
 
 class ProductoOut(BaseModel):
-    id: int
+    id_producto: int
     nombre: str
     descripcion: Optional[str]
     costo_venta: Optional[float] = 0

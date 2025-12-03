@@ -5,7 +5,7 @@ from src.db.base_class import Base
 
 class Cliente(Base):
     __tablename__ = "clientes"
-    id = Column(BigInteger,primary_key=True, index=True)
+    id_cliente = Column(BigInteger,primary_key=True, index=True)
     nombre = Column(String, index=True)
     direccion = Column(Text,index=True)
     telefono = Column(INTEGER, index= True)

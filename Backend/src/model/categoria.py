@@ -4,7 +4,7 @@ from src.db.base_class import Base
 
 class Categoria(Base):
     __tablename__ = "categorias"
-    id = Column(BigInteger, primary_key=True, index=True)
+    id_categoria = Column(BigInteger, primary_key=True, index=True)
     tipo = Column(String, index=True)
 
 

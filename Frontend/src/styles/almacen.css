@@ -1,0 +1,146 @@
+/* CONTENEDOR GENERAL */
+.page-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* centrado horizontal */
+  align-items: flex-start;   /* pegado un poco arriba */
+  padding: 150px 40px 40px 40px;
+  color: #fff;
+}
+
+/* TITULO */
+.page-title {
+  font-size: 24px;      /* un poco más chico para que se vea más fino */
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: left;      /* AHORA alineado a la izquierda */
+  letter-spacing: 0.3px;
+}
+
+/* TARJETA / FORMULARIO */
+.form-card {
+  background: #111418;
+  padding: 30px 30px 26px;
+  width: 100%;
+  max-width: 720px;      /* ANCHO MÁXIMO MÁS GRANDE */
+  border-radius: 14px;
+  box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.45);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+/* =============================
+   ETIQUETAS E INPUTS
+============================= */
+.form-label {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+  color: #cdd0d4;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 12px;
+  background: #1a1d21;
+  border: 1px solid #2b2f33;
+  border-radius: 8px;
+  color: #e4e6eb;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: #ff7b00;
+  outline: none;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* =============================
+   FILE INPUT PERSONALIZADO
+============================= */
+.file-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.file-input {
+  opacity: 0;
+  width: 100%;
+  height: 42px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.file-label {
+  width: 100%;
+  background: #1a1d21;
+  border: 1px solid #2b2f33;
+  padding: 12px;
+  color: #aeb4bb;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+}
+
+.file-label:hover {
+  border-color: #ff7b00;
+}
+
+/* =============================
+   BOTÓN PRINCIPAL
+============================= */
+.btn-primary {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #ff7b00;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #ff8f26;
+}
+
+/* =============================
+   PREVIEW IMAGEN
+============================= */
+.preview-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+/* =============================
+   ANIMACIÓN
+============================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

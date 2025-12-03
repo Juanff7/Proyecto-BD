@@ -10,8 +10,8 @@ from src.schemas import email as schema_em
 router = APIRouter()
 
 #Crear correo de empleado
-@router.post("/Craar", response_model=schema_em.EmailOut)
-def Create(Email: schema_em.EmailOut, db: Session = Depends(get_db)):
+@router.post("/Crear", response_model=schema_em.EmailOut)
+def Create(Email: schema_em.EmailCraate, db: Session = Depends(get_db)):
     return crud_em.created_email(db=db, data=Email)
 
 @router.get("/Obtener", response_model=List[schema_em.EmailOut])

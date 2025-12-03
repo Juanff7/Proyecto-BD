@@ -1,0 +1,66 @@
+.topbar {
+    height: 60px;
+    background-color: #101010;
+    border-bottom: 1px solid #222;
+
+    position: fixed;
+    top: 0;
+    left: 240px;        /* SE ALINEA CON EL SIDEBAR */
+    right: 0;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #e0e0e0;
+}
+
+
+
+.topbar-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar-icon {
+    font-size: 23px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.topbar-icon:hover {
+    color: white;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background-color: #1a1a1a;
+    border-radius: 6px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.user-box:hover {
+    background-color: #222;
+}
+
+.user-icon {
+    font-size: 18px;
+}
+
+.user-role {
+    font-size: 14px;
+    font-weight: bold;
+}

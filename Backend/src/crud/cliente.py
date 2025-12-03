@@ -19,7 +19,7 @@ def Created_Cliente(db:Session, data: ClienteBase):
 
 
 def Update_Cliente(db: Session, id: int, data: ClienteUpdate):
-    cliente = db.query(Cliente).filter(Cliente.id == id).first()
+    cliente = db.query(Cliente).filter(Cliente.id_cliente == id).first()
     if not cliente: 
         raise HTTPException(status_code=404, detail="Cliente no encontrado")
     
@@ -33,7 +33,13 @@ def Update_Cliente(db: Session, id: int, data: ClienteUpdate):
     db.refresh(cliente)
     return cliente 
     
-
+def delete_cliente(db:Session, id:int):
+    cliente = db.query(Cliente).filter(Cliente.id_cliente == id).first()
+    if not cliente: 
+        raise HTTPException(status_code=404, detail="Cliente no encontrado")
+    db.delete(cliente)
+    db.commit()
+    return {"detail": "Cliente eliminado correctamente"}
 
 
 
@@ -45,6 +51,6 @@ def get_name(db:Session, name: str):
     return db.query(Cliente).filter(Cliente.nombre == name).first()
 
 def get_id(db:Session, id: int):
-    return db.query(Cliente).filter(Cliente.id == id).first()
+    return db.query(Cliente).filter(Cliente.id_cliente == id).first()
 
 

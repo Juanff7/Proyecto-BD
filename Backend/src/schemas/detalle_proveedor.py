@@ -19,13 +19,37 @@ class detalleCreate(Detalleproveedor):
     empleado: str
 
 class detalleOut(Detalleproveedor):
-    id: int
-    total: Optional[float] = None
-    producto: Optional[ProductoOut] = None
-    proveedor: Optional[proveedorOut] =None 
-    empleado: Optional[EmpleadoOut] = None 
+    id_dp: int
+    producto: Optional[ProductoOut]
+    proveedor: Optional[proveedorOut]
+    empleado: Optional[EmpleadoOut]
+    precio_unit: float
+    cantidad: int
+    fecha_ingreso: datetime
+    detalle: Optional[str]
     model_config = ConfigDict(from_attributes=True)
- 
+
+from typing import List, Optional
+
+class EntradaSimple(BaseModel):
+    id_dp: int
+    producto: str
+    proveedor: str
+    empleado: str
+    cantidad: int
+    precio_unit: float
+    fecha_ingreso: str
+    detalle: Optional[str]
+
+class ReporteFiltros(BaseModel):
+    search: Optional[str] = None
+    fecha: Optional[str] = None
+    inicio: Optional[str] = None
+    fin: Optional[str] = None
+
+class ReporteEntradaRequest(BaseModel):
+    filtros: ReporteFiltros
+    entradas: List[EntradaSimple]
 
 
  

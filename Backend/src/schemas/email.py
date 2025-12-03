@@ -10,13 +10,16 @@ class Emailbase(BaseModel):
 
 class EmailCraate(Emailbase):
     proveedor_n: Optional[str] = None
-    proveedor_id: Optional[str] = None
+    proveedor_id: Optional[int] = None
 
-class EmailOut(Emailbase):
+class EmailOut(BaseModel):
     id: int
-    proveedor: Optional[ProveedorBase] = None
+    email: EmailStr
+    proveedor: Optional[str] = None  # ← SOLO nombre del proveedor
+
     model_config = ConfigDict(from_attributes=True)
 
+
 class EmailPorProveedor(BaseModel):
-    proveedor: str 
-    email: list[dict[str,int]] #Lista los correos
+    proveedor: str
+    correos: list[str]

@@ -1,0 +1,147 @@
+.cli-container {
+  padding: 35px 50px;
+  color: #e5e7eb;
+}
+
+.cli-title {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 30px;
+}
+
+.cli-layout {
+  display: grid;
+  grid-template-columns: 28% 72%;
+  gap: 30px;
+}
+
+/* FORMULARIO */
+.cli-form {
+  padding-right: 10px;
+}
+
+.cli-form-title {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.cli-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cli-form input {
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #111827;
+  color: #fff;
+}
+
+.cli-form input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.cli-btn-primary {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cli-btn-primary:hover {
+  background: #1e40af;
+}
+
+/* TABLA */
+.cli-table {
+  padding-left: 10px;
+}
+
+.cli-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cli-search {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #30363d;
+  background: #0f172a;
+  color: white;
+}
+
+.cli-search:focus {
+  border-color: #3b82f6;
+}
+
+.cli-table-count {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.cli-table-grid {
+  display: grid;
+  grid-template-columns: 30% 30% 20% 20%;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.cli-header {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.cli-row:hover {
+  background: #0f172a;
+}
+
+/* Acciones */
+.cli-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cli-btn-edit,
+.cli-btn-delete,
+.cli-btn-save,
+.cli-btn-cancel {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: none;
+}
+
+.cli-btn-edit {
+  background: #1e3a8a;
+  color: white;
+}
+
+.cli-btn-delete {
+  background: #991b1b;
+  color: white;
+}
+
+.cli-btn-save {
+  background: #065f46;
+  color: white;
+}
+
+.cli-btn-cancel {
+  background: #374151;
+  color: white;
+}

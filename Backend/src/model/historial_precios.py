@@ -5,8 +5,8 @@ from datetime import datetime
 
 class Historial_Precios(Base):
     __tablename__ = "historial_precios"
-    id = Column(BigInteger, primary_key=True, index=True)
-    id_producto = Column(BigInteger, ForeignKey("productos.id"))
+    id_historial = Column(BigInteger, primary_key=True, index=True)
+    id_producto = Column(BigInteger, ForeignKey("productos.id_producto"))
     precio_anterior = Column(Float, index=True)
     precio_nuevo = Column(Float, index=True)
     fecha_de_cambio = Column(DateTime, default=datetime.now)

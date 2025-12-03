@@ -5,9 +5,9 @@ from sqlalchemy.orm import relationship
 
 class Email(Base):
     __tablename__ = "emails"
-    id = Column(BigInteger, primary_key=True, index=True)
+    id_email = Column(BigInteger, primary_key=True, index=True)
     email = Column(String, index=True)
-    id_proveedor = Column(BigInteger, ForeignKey("proveedores.id"))
+    id_proveedor = Column(BigInteger, ForeignKey("proveedores.id_proveedor"))
 
 
     #relaciones

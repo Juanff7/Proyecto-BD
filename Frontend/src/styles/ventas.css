@@ -1,0 +1,206 @@
+/* ============================================================
+   1) BASE DEL DISEÑO — Modern dark
+============================================================ */
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Wrapper general */
+.venta-wrapper {
+  width: 100%;
+  padding: 40px 60px;
+  color: #e2e2e2;
+}
+
+
+/* ============================================================
+   2) TÍTULO PRINCIPAL
+============================================================ */
+.venta-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 35px;
+  color: #3ea0ff;
+  text-shadow: 0 0 12px rgba(62,160,255,0.35);
+}
+
+
+/* ============================================================
+   3) GRID BALANCEADO (como compra)
+============================================================ */
+.venta-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;   /* MISMA ESTRUCTURA DE COMPRA */
+  gap: 55px;
+}
+
+
+/* ============================================================
+   4) SECCIONES TITULARES PREMIUM
+============================================================ */
+.historial-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3ea0ff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  opacity: 0.85;
+}
+
+.historial-title::after {
+  content: "";
+  display: block;
+  width: 65%;
+  height: 1px;
+  background: linear-gradient(90deg,#3ea0ff,#2e2e2e00);
+  margin-top: 6px;
+}
+
+
+/* ============================================================
+   5) FORMULARIO IZQUIERDO (MISMO ESTILO DE COMPRA)
+============================================================ */
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #b6b6b6;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #141516;
+  color: #f6f6f6;
+  border: 1px solid #282828;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.25s ease;
+  margin-bottom: 18px;
+}
+
+.form-input:hover {
+  border-color: #3ea0ff;
+  background: #1c1e21;
+}
+
+.form-input:focus {
+  border-color: #3ea0ff;
+  background: #1e2024;
+  box-shadow: 0 0 10px rgba(62,160,255,0.35);
+  outline: none;
+}
+
+
+/* ============================================================
+   6) BOTÓN PRIMARIO PREMIUM (idéntico)
+============================================================ */
+.btn-primary {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg,#3ea0ff,#1b6fcc);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.015);
+  box-shadow: 0 0 16px rgba(62,160,255,0.4);
+}
+
+
+/* ============================================================
+   7) HISTORIAL RECIENTE — TARJETAS PREMIUM
+============================================================ */
+.historial-box {
+  margin-top: 20px;
+}
+
+.historial-item {
+  background: #141518;
+  border: 1px solid #2b2d31;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  color: #d1d1d1;
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.historial-item:hover {
+  background: #1a1c20;
+  border-color: #3ea0ff;
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(62,160,255,0.25);
+}
+
+.historial-item .item-producto {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.item-mini {
+  color: #b4b4b4;
+  font-size: 0.78rem;
+}
+
+.item-total {
+  color: #00d66b;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+
+/* ============================================================
+   8) VISTA PREVIA (MISMO ESTILO)
+============================================================ */
+.preview-card {
+  background: #101113;
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #242424;
+}
+
+.preview-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3ea0ff;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0.85;
+}
+
+.preview-line {
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+.preview-total {
+  margin-top: 8px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #00d66b;
+  text-shadow: 0 0 8px rgba(0, 214, 107, 0.38);
+}

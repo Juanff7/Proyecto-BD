@@ -17,8 +17,7 @@ class telefonoOut(Telefonobase):
     id: int
     proveedor: Optional[str] = None
     model_config = ConfigDict(from_attributes=True)
-
+    
 class TelefonosPorProveedor(BaseModel):
     proveedor: str
-    telefonos: list[dict[str, int]]   # lista de {"num": ...}
-
+    telefonos: list[dict[str, int]]

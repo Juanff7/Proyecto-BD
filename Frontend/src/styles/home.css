@@ -1,0 +1,19 @@
+.home-container {
+  width: 100%;
+  height: calc(100vh - 55px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1d1d;
+}
+
+.logoHome {
+  text-align: center;
+}
+
+.logo-imgHome {
+  width: 160px;
+  height: auto;
+  border-radius: 20%;
+  opacity: 0.9;
+}

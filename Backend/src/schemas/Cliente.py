@@ -9,7 +9,7 @@ class ClienteBase(BaseModel):
     model_config =ConfigDict(from_attributes=True)
 
 class ClienteOut(ClienteBase):
-    id: int
+    id_cliente : int
     pass
 
 class ClienteUpdate(BaseModel):

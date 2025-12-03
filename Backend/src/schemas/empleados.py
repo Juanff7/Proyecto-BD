@@ -1,37 +1,23 @@
-from pydantic import BaseModel, EmailStr, ConfigDict
-from typing import Optional
+from pydantic import BaseModel
 
-
-from .cargo import Cargoout
-
-
-#Empleado base
 class EmpleadoBase(BaseModel):
-    email: EmailStr
     nombre: str
-    apellido: str 
-
-#-------------Crear empleado--------------------
-class EmpleadoCreated(EmpleadoBase):
-    contraseña: str
-    id_cargo: int 
-    activo:Optional[bool] = True
+    apellido: str
+    email: str
+    id_cargo: int
+    activo: bool = True
 
 
-#-----------Obtener empleado en pantalla---------
+class EmpleadoCreate(EmpleadoBase):
+    pass
+
+
+class EmpleadoUpdate(EmpleadoBase):
+    pass
+
+
 class EmpleadoOut(EmpleadoBase):
-    id_empleado : int
-    activo: bool
-    cargo: Optional[Cargoout] = None
-    model_config = ConfigDict(from_attributes=True)
+    id_empleado: int
 
-
-#------------login----------
-class EmpleadoLogin(BaseModel):
-    email: EmailStr
-    contraseña: str
-    
-
-
-    
-
+    class Config:
+        from_attributes = True

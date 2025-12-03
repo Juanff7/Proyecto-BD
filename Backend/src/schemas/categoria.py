@@ -8,5 +8,5 @@ class CategoriaCreate(CategoriaBase):
     pass
 
 class CategoriaOut(CategoriaBase):
-    id: int 
+    id_categoria: int 
     model_config = ConfigDict(from_attributes=True)

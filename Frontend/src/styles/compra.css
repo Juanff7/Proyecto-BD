@@ -1,0 +1,250 @@
+/* ============================================================
+   1) BASE DEL DISEÑO — Modern dark
+============================================================ */
+body {
+  font-family: "Inter", sans-serif;   /* Tipografía moderna */
+   overflow-x: hidden;
+}
+
+/* Wrapper general */
+.compra-wrapper {
+  width: 100%;
+  padding: 40px 60px;
+  color: #e2e2e2;
+}
+
+/* ============================================================
+   2) TÍTULO PRINCIPAL
+============================================================ */
+.Title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 35px;
+  color: #3ea0ff;
+  text-shadow: 0 0 12px rgba(62, 160, 255, 0.35);
+}
+
+/* ============================================================
+   3) GRID BALANCEADO
+============================================================ */
+.compra-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 55px;
+}
+
+
+/* ============================================================
+   4) SECCIONES — ESTILO PREMIUM
+============================================================ */
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3ea0ff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  opacity: 0.85;
+}
+
+/* Línea moderna debajo del título */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 65%;
+  height: 1px;
+  background: linear-gradient(90deg,#3ea0ff,#2e2e2e00);
+  margin-top: 6px;
+}
+
+
+/* ============================================================
+   5) LABELS PREMIUM
+============================================================ */
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #b6b6b6;
+  margin-bottom: 6px;
+}
+
+
+/* ============================================================
+   6) INPUTS PREMIUM
+============================================================ */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: #141516;
+  color: #f6f6f6;
+  border: 1px solid #282828;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.25s ease;
+}
+
+.form-input:hover,
+.form-textarea:hover {
+  border-color: #3ea0ff;
+  background: #1c1e21;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #3ea0ff;
+  background: #1e2024;
+  box-shadow: 0 0 10px rgba(62,160,255,0.35);
+  outline: none;
+}
+
+.form-textarea {
+  resize: none;
+  height: 120px;
+}
+
+
+/* ============================================================
+   7) BOTÓN PRIMARIO PREMIUM
+============================================================ */
+.btn-primary {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg,#3ea0ff,#1b6fcc);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.015);
+  box-shadow: 0 0 16px rgba(62,160,255,0.4);
+}
+
+
+/* ============================================================
+   8) RESUMEN — ESTILO COMPACTO PREMIUM
+============================================================ */
+.columna-resumen {
+  padding-left: 20px;
+}
+
+.resumen-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #3ea0ff;
+  margin-bottom: 12px;
+}
+
+.resumen-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 0 auto 20px auto;
+  display: block;
+  background: #111;
+  border: 1px solid #303030;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.resumen-card {
+  font-size: 0.86rem;
+  color: #cccccc;
+  line-height: 1.35rem;
+}
+
+.resumen-total {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-top: 12px;
+  color: #00d66b;
+  text-shadow: 0 0 8px rgba(0, 214, 107, 0.38);
+}
+
+/* Línea divisor */
+hr {
+  border: none;
+  border-bottom: 1px solid #272727;
+  margin: 16px 0;     /* ← SOLO vertical, sin desbordar */
+  width: 100%;        /* ← evita que se pase del contenedor */
+  box-sizing: border-box;
+}
+
+
+
+/* ============================================================
+   HISTORIAL RECIENTE — TARJETAS PREMIUM
+============================================================ */
+.historial-box {
+  margin-top: 25px;
+}
+
+.historial-item {
+  background: #141518;
+  border: 1px solid #2b2d31;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  color: #d1d1d1;
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Hover efecto sutil */
+.historial-item:hover {
+  background: #1a1c20;
+  border-color: #3ea0ff;
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(62,160,255,0.25);
+}
+
+/* Nombre del producto */
+.historial-item .item-producto {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* Línea info mini */
+.historial-item .item-mini {
+  color: #b4b4b4;
+  font-size: 0.78rem;
+}
+
+/* Precios */
+.historial-item .item-precio {
+  color: #3ea0ff;
+  font-weight: 600;
+}
+
+.historial-item .item-total {
+  color: #00d66b;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+/* Iconito */
+.historial-icon {
+  font-size: 0.85rem;
+  margin-right: 6px;
+  opacity: 0.8;
+}
