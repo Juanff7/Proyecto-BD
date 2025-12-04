@@ -23,7 +23,7 @@ function App() {
          {/* Layout principal*/}
         <Route path="/" element={<DashboardLayout/>}>
      
-        <Route index  element={<Home />} />
+        <Route path="Home"  element={<Home />} />
         <Route path="Venta/Cliente" element={<ClientePage />} />
          <Route path="Venta/Detalle" element={<DetalleVentaPage />} />
          <Route path="Venta/generar" element={<GenerarVenta />} />

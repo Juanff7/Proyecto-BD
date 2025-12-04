@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/RegistrarPrecio.css";
 
-const API_H = "http://localhost:8000/Historial/Create";
+const API_H = "http://localhost:8000/Historial/create";
 const API_P = "http://localhost:8000/Producto/autocompletado";
 const API_PRODUCTO = "http://localhost:8000/Producto";
 

@@ -37,19 +37,28 @@ def created_historial_precios(db: Session, data: CreateHistorial):
     return historial
 
 
+from sqlalchemy.orm import joinedload
+
 def get_all_historial(db: Session):
-    return db.query(Historial_Precios).order_by(Historial_Precios.fecha_de_cambio.desc()).all()
+    return (
+        db.query(Historial_Precios)
+        .options(joinedload(Historial_Precios.producto))
+        .order_by(Historial_Precios.fecha_de_cambio.desc())
+        .all()
+    )
 
 
 def get_by_id(db: Session, historial_id: int):
     return db.query(Historial_Precios).filter(Historial_Precios.id == historial_id).first()
 
-
 def get_by_producto(db: Session, producto_id: int):
-    return db.query(Historial_Precios)\
-        .filter(Historial_Precios.id_producto == producto_id)\
-        .order_by(Historial_Precios.fecha_de_cambio.desc())\
+    return (
+        db.query(Historial_Precios)
+        .options(joinedload(Historial_Precios.producto))
+        .filter(Historial_Precios.id_producto == producto_id)
+        .order_by(Historial_Precios.fecha_de_cambio.desc())
         .all()
+    )
 
 
 def get_by_fecha(db: Session, fecha: datetime):

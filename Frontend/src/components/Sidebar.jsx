@@ -21,10 +21,10 @@ return(
 
         <div className="sidebar-section">
           {/*Inicio(Fi home logo)*/}      
-        <div className="sidebar-item">
+        <Link to="/Home" className="sidebar-item">
             <FiHome className="icon" />
             inicio
-            </div>
+            </Link>
         {/*Compra(Fishoping loco de compra*/}
         <div className="sidebar-item sidebar-dropdown" onClick={() => setOpenCompra(!openCompra)}>   
             <FiShoppingCart className="icon"/> 

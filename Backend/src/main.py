@@ -98,9 +98,12 @@ app.include_router(Detalle_proveedor.router, prefix = "/Entrada",tags=['Etiqueta
 #-----------------Cliente-------------------
 app.include_router(cliente.router, prefix= "/Cliente", tags=['Etiquete cliente'])
 #----------------historialPrecios--------------------
-app.include_router(Historial_precios.router, prefix = "/historial", tags=['etiqueta de historial de precios'])
+app.include_router(Historial_precios.router, prefix = "/Historial", tags=['etiqueta de historial de precios'])
 #---------------venta--------------------------
 app.include_router(venta.router, prefix="/venta", tags=['etiqueta de ventas'] )
 #--------------detalleventa-----------------------
 app.include_router(detalle_venta.router, prefix="/DetalleVenta", tags=['Etiqueta detalle venta'])
 
+from src.api.router import estadisticas
+
+app.include_router(estadisticas.router)

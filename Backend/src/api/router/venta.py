@@ -54,11 +54,47 @@ def obtener_factura(id_venta: int, db: Session = Depends(get_db)):
 # ================================
 #   REPORTE PDF GENERALIZADO
 # ================================
+from src.model.cliente import Cliente
+from src.model.empleado import Empleado
 @router.post("/reporte/general")
-def generar_reporte_general(data: ReporteVentaRequest):
-    path = "src/reports/reporte_ventas.pdf"
-    generar_pdf_ventas(path, data.filtros, data.ventas)
-    return FileResponse(path, media_type="application/pdf", filename="reporte_ventas.pdf")
+def generar_reporte_general(data: ReporteVentaRequest, db: Session = Depends(get_db)):
+
+    # 1. Filtrar ventas desde la base de datos
+    query = db.query(Venta).join(Cliente).join(Empleado)
+
+    if data.fecha_inicio:
+        query = query.filter(Venta.fecha >= data.fecha_inicio)
+    if data.fecha_fin:
+        query = query.filter(Venta.fecha <= data.fecha_fin)
+    if data.cliente:
+        query = query.filter(Cliente.nombre.ilike(f"%{data.cliente}%"))
+    if data.empleado:
+        query = query.filter(Empleado.nombre.ilike(f"%{data.empleado}%"))
+
+    ventas = query.all()
+
+    # 2. Convertir datos a diccionarios para el PDF
+    ventas_list = [
+        {
+            "ID Venta": v.id_venta,
+            "Fecha": v.fecha.strftime("%Y-%m-%d"),
+            "Cliente": v.cliente.nombre,
+            "Empleado": v.empleado.nombre,
+            "Total": v.total
+        }
+        for v in ventas
+    ]
+
+    # 3. Generar PDF
+    ruta_pdf = generar_pdf_ventas(ventas_list, "reporte_ventas.pdf")
+
+    # 4. Retornar archivo
+    return FileResponse(
+        ruta_pdf,
+        media_type="application/pdf",
+        filename="reporte_ventas.pdf"
+    )
+
 
 
 from sqlalchemy.orm import joinedload

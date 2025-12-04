@@ -47,9 +47,12 @@ class ReporteFiltros(BaseModel):
     inicio: Optional[str] = None
     fin: Optional[str] = None
 
+
 class ReporteEntradaRequest(BaseModel):
-    filtros: ReporteFiltros
-    entradas: List[EntradaSimple]
+    fecha_inicio: Optional[str] = None
+    fecha_fin: Optional[str] = None
+    proveedor: Optional[str] = None
+
 
 
  

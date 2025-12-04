@@ -90,22 +90,23 @@ def obtener_factura(db: Session, id_venta: int):
         raise HTTPException(404, "Venta no encontrada")
 
     return {
-        "id_venta": venta.id_venta,
-        "cliente": venta.cliente.nombre,
-        "empleado": venta.empleado.nombre,
-        "fecha": venta.fecha,
-        "total": venta.total,
-        "detalles": [
-            {
-                "id_dv": d.id_dv,
-                "producto": d.producto.nombre,
-                "cantidad": d.cantidad,
-                "precio_unit": d.precio_unit,
-                "sub_total": d.sub_total
-            }
-            for d in venta.detalle_venta
-        ]
-    }
+    "id_venta": venta.id_venta,
+    "cliente": venta.cliente.nombre,
+    "empleado": venta.empleado.nombre,
+    "fecha": venta.fecha,
+    "total": venta.total,
+    "detalles": [
+        {
+            "id_dv": d.id_dv,
+            "producto": d.producto.nombre if d.producto else "Producto eliminado",
+            "cantidad": d.cantidad,
+            "precio_unit": d.precio_unit,
+            "sub_total": d.sub_total
+        }
+        for d in venta.detalle_venta
+    ]
+}
+
 
 
 

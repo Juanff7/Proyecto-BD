@@ -55,11 +55,20 @@ export default function HistorialPreciosPage() {
   const filtradosYOrdenados = useMemo(() => {
     let data = [...historial];
 
-    // Filtrar por producto
-    if (productId.trim()) {
-      const idNum = Number(productId);
-      data = data.filter((h) => h.id_producto === idNum);
-    }
+   // Filtrar por ID O nombre del producto
+if (productId.trim()) {
+  const term = productId.trim().toLowerCase();
+
+  data = data.filter((h) => {
+    const idMatch = String(h.id_producto).includes(term);
+    const nameMatch = h.producto?.nombre
+      ?.toLowerCase()
+      .includes(term);
+
+    return idMatch || nameMatch;
+  });
+}
+
 
     // Filtrar por rango de fechas
     if (dateFrom) {
@@ -138,11 +147,11 @@ export default function HistorialPreciosPage() {
       <div className="hist-top">
         <div className="hist-filters">
           <div className="hist-filter-group">
-            <label>ID Producto</label>
+            <label>Producto</label>
             <input
               className="hist-input"
-              type="number"
-              placeholder="Ej: 12"
+              type="text"
+              placeholder="Dudley o 5"
               value={productId}
               onChange={(e) => {
                 setProductId(e.target.value);
@@ -294,19 +303,15 @@ export default function HistorialPreciosPage() {
             return (
               <div className="hist-row" key={h.id}>
                 <span className="hist-col-id">
-                  <span className="hist-id-pill">{h.id}</span>
+                  <span className="hist-id-pill">{h.id_producto}</span>
                 </span>
 
-                <span className="hist-col-product">
-                  <span className="hist-product-id">
-                    #{h.id_producto ?? "-"}
-                  </span>
-                  {h.producto?.nombre && (
-                    <span className="hist-product-name">
-                      {h.producto.nombre}
-                    </span>
-                  )}
-                </span>
+              <span className="hist-col-product">
+  <span className="hist-product-name">
+    {h.producto?.nombre ?? "Producto eliminado"}
+  </span>
+</span>
+
 
                 <span className="hist-col-price">
                   {formatMoneda(anterior)}

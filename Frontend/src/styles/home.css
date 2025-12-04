@@ -1,19 +1,113 @@
-.home-container {
-  width: 100%;
-  height: calc(100vh - 55px); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1d1d1d;
+/* ==== Estilo Apple Dashboard ==== */
+
+.home-wrapper {
+  padding: 30px;
+  color: #edeef2;
+  font-family: "SF Pro Display", Inter, Poppins, sans-serif;
 }
 
-.logoHome {
+/* ---- CARDS ---- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.apple-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.apple-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+}
+
+.apple-card h4 {
+  opacity: 0.65;
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.apple-card p {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---- CHARTS ---- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 22px;
+}
+
+.apple-chart {
+  background: rgba(255, 255, 255, 0.035);
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.apple-chart h3 {
+  margin: 0 0 10px;
+  font-weight: 500;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* ---- LOADING ---- */
+.loading {
+  padding: 60px;
   text-align: center;
+  font-size: 22px;
+  opacity: 0.7;
+}
+/* ---- Quick Actions ---- */
+/* ---- Quick Actions ---- */
+.quick-actions {
+  margin-top: 45px;              /* MÁS ESPACIO SOBRE LAS GRÁFICAS */
+  display: grid;
+  grid-template-columns: 1fr;    /* UNA COLUMNA LIMPIA */
+  gap: 25px;                     /* ESPACIADO ENTRE BOTONES */
+  padding: 0 10px;
 }
 
-.logo-imgHome {
-  width: 160px;
-  height: auto;
-  border-radius: 20%;
+.quick-btn {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 26px;            /* MÁS ALTURA Y ESPACIO INTERNO */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;                     /* ESPACIO ENTRE ICONO Y TEXTO */
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  color: #e7e9ef;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: 0.25s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.quick-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.quick-icon {
+  font-size: 26px;       /* ÍCONOS MÁS GRANDES */
   opacity: 0.9;
 }

@@ -39,12 +39,22 @@ export default function ClientePage() {
     setForm({ nombre: "", direccion: "", telefono: "" });
   };
 
-  // Eliminar
-  const handleEliminar = async (id) => {
-    if (!window.confirm("¿Eliminar cliente?")) return;
+ // Eliminar
+const handleEliminar = async (id) => {
+  if (!window.confirm("¿Eliminar cliente?")) return;
+
+  try {
     await axios.delete(`${API_BASE}/delete/${id}`);
     cargarClientes();
-  };
+  } catch (error) {
+    if (error.response && error.response.status === 400) {
+      alert("Este cliente tiene ventas registradas y no puede ser eliminado.");
+    } else {
+      alert("Error al eliminar el cliente.");
+    }
+  }
+};
+
 
   // Editar inline
   const empezarEdicion = (cliente) => {

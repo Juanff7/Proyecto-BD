@@ -3,7 +3,7 @@ from src.model.cliente import Cliente
 from src.schemas.Cliente import ClienteBase, ClienteUpdate
 from fastapi import HTTPException
 
-
+from src.model.venta import Venta 
 
 def Created_Cliente(db:Session, data: ClienteBase):
     Client = Cliente(
@@ -33,10 +33,19 @@ def Update_Cliente(db: Session, id: int, data: ClienteUpdate):
     db.refresh(cliente)
     return cliente 
     
-def delete_cliente(db:Session, id:int):
+def delete_cliente(db: Session, id: int):
     cliente = db.query(Cliente).filter(Cliente.id_cliente == id).first()
-    if not cliente: 
+    if not cliente:
         raise HTTPException(status_code=404, detail="Cliente no encontrado")
+
+    # Verificar si tiene ventas
+    ventas = db.query(Venta).filter(Venta.id_cliente == id).all()
+    if ventas:
+        raise HTTPException(
+            status_code=400,
+            detail="No se puede eliminar el cliente porque tiene ventas registradas"
+        )
+
     db.delete(cliente)
     db.commit()
     return {"detail": "Cliente eliminado correctamente"}

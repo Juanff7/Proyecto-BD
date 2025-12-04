@@ -12,12 +12,21 @@ router = APIRouter()
 
 @router.post("/create", response_model=SchemaHist.HistorialOut)
 def crear(entrada: SchemaHist.CreateHistorial, db: Session = Depends(get_db)):
-    return crud.created_historial_precios(db, entrada)
+    h = crud.created_historial_precios(db, entrada)
+
+    return {
+        "id_historial": h.id_historial,   # ← ESTE NOMBRE ES EL CORRECTO
+        "id_producto": h.id_producto,
+        "precio_anterior": h.precio_anterior,
+        "precio_nuevo": h.precio_nuevo,
+        "fecha_de_cambio": h.fecha_de_cambio
+    }
 
 
 @router.get("/", response_model=List[SchemaHist.HistorialOut])
 def obtener_todos(db: Session = Depends(get_db)):
     return crud.get_all_historial(db)
+
 
 
 @router.get("/id/{historial_id}", response_model=SchemaHist.HistorialOut)
